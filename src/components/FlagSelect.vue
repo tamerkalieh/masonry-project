@@ -3,10 +3,10 @@
     <div
       v-for="(flag, index) in flags"
       :key="index"
-      class="flag-select__flag"
+      class='flag-select__flag'
       @click="$emit('updateState', { index: imageIndex, state: flag.state })"
     >
-      <span class="flag-select__text" :class="flag.color">
+      <span class='flag-select__text' :class="flag.color">
         <svg
           enable-background="new 0 0 60 60"
           version="1.1"
@@ -24,22 +24,22 @@
   </div>
 </template>
 
-<script>
-import flags from "../resources/flags.js";
+<script lang='ts'>
+import { defineComponent } from 'vue'
+import flags from '../resources/flags.js';
 
-export default {
+export default defineComponent({
+  name: 'FlagSelect',
   props: {
     imageIndex: {
       required: true,
       type: Number,
     }
   },
-  data() {
-    return {
-      flags,
-    };
-  },
-};
+  setup() {
+    return { flags }
+  }
+});
 </script>
 
 <style scoped lang="sass">

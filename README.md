@@ -1,46 +1,26 @@
-# vite-project
+# Vite - Masonry
 
-This template should help get you started developing with Vue 3 in Vite.
+I have a few things to tell before you going through the application. This project is a simple app and not an application that has any commercial use.
 
-## Recommended IDE Setup
+I had requirements such as using the pinia store.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+However, I decided not to use pinia since this simple app does not require such a too.. Pinia is meant to be a store that makes information cross-component accessible. A good usecase is showing user-informaiton such as the name in the navigation as well as printing out user-data in some profile page.
 
-## Type Support for `.vue` Imports in TS
+However, for this simple application I had no need in pushing random generated images to the store, neither the flag information for each of the images.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+---
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Further, there are a few improvements that can be made but I was not able to do them in the timeframe that was given.
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## 1. Card Wrapper
 
-## Customize configuration
+The "Masonry-Wrapper" could be some UiCard that displays any content you can think off. So instead of just adding the masonry layout inside the card, the card could have a slot. This slot can be then used to show the masonry layout or any other content.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 2. UiImage Component
 
-## Project Setup
+The image itself could be a component that includes the "flag-select" as a child component. The App.vue would then pass down each image to the UiImage component which then displays the flag-select.
 
-```sh
-npm install
-```
+## 4. SVG Flag
 
-### Compile and Hot-Reload for Development
+I could have added the flag as an `<img />` or include it with JS, but there is no need for that in a simple application like that so I just pasted a minified version of the SVG. I tried to extract the flag from figma but somehow wasn't able to get it.
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
