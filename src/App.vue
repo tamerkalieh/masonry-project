@@ -7,12 +7,14 @@
           :key="imgIndex"
           class="masonry__item"
         >
-          <FlagSelect
-            v-if="image.showSelect"
-            class="masonry__select"
-            :image-index="imgIndex"
-            @update-state="updateState"
-          />
+          <Transition>
+            <FlagSelect
+              v-if="image.showSelect"
+              class="masonry__select"
+              :image-index="imgIndex"
+              @update-state="updateState"
+            />
+          </Transition>
           <div
             :class="[
               'masonry__item-btn',
@@ -134,8 +136,8 @@ export default {
           src: "https://source.unsplash.com/random/16",
           state: "none",
           showSelect: false,
-        }
-      ]
+        },
+      ],
     };
   },
   methods: {
@@ -147,7 +149,7 @@ export default {
       this.images.forEach((image) => (image.showSelect = false));
       this.images[imageIndex].showSelect = true;
     },
-  }
+  },
 };
 </script>
 
@@ -162,7 +164,7 @@ export default {
     & > #{$img}-btn
       @apply absolute right-0 top-0 z-10 mr-4 mt-4 bg-white rounded-lg w-auto px-2 h-8 flex items-center shadow-lg text-white text-xs
       &--hidden
-        @apply opacity-0
+        @apply opacity-0 transition-opacity
         & > .masonry__flag-img
           @apply fill-slate-400
       &--none
@@ -182,5 +184,5 @@ export default {
   &__image
     @apply rounded-lg
   &__select
-    @apply absolute z-20 -right-6 bg-white w-36 text-center px-4 py-2 shadow-xl rounded-lg
+    @apply absolute z-20 -right-6 bg-white w-36 text-center px-4 py-2 shadow-xl rounded-lg transition-opacity
 </style>

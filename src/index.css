@@ -1,8 +1,23 @@
 body {
-  background: rgb(105,174,223);
-  background: linear-gradient(150deg, rgba(105,174,223,1) 0%, rgba(206,110,217,1) 17%, rgba(233,97,28,1) 100%);
+  background: rgb(105, 174, 223);
+  background: linear-gradient(
+    150deg,
+    rgba(105, 174, 223, 1) 0%,
+    rgba(206, 110, 217, 1) 17%,
+    rgba(233, 97, 28, 1) 100%
+  );
   width: 100vw;
   height: auto;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 
 @tailwind base;
