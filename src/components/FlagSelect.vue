@@ -48,6 +48,16 @@ export default defineComponent({
     @apply p-2 cursor-pointer
     &:hover
       @apply bg-gray-100 rounded-lg
+    &:first-of-type
+      @apply mb-2
+      &::after
+        content: ''
+        @apply absolute mt-3 left-0 w-full bg-slate-200 h-px
+    &:last-of-type
+      @apply mt-2
+      &::before
+        content: ''
+        @apply absolute -mt-3 left-0 w-full bg-slate-200 h-px
   &__text
     @apply flex
     & > svg
